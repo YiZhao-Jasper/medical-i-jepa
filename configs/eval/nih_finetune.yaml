@@ -1,0 +1,46 @@
+data:
+  batch_size: 32
+  crop_size: 224
+  num_workers: 10
+  pin_mem: true
+  root_path: /root/autodl-tmp/data/nih-chest-xrays-data
+  use_zip: false
+
+logging:
+  folder: /root/autodl-tmp/medical-ijepa/medical-ijepa/logs/finetune/
+  write_tag: finetune
+
+meta:
+  model_name: vit_large
+  patch_size: 14
+  pretrained_path: /root/autodl-tmp/medical-ijepa/medical-ijepa/logs/pretrain_vitl14/jepa-latest.pth.tar
+  freeze_encoder: false
+  use_bfloat16: true
+
+eval:
+  task: classification
+  num_classes: 14
+  target_labels:
+  - Atelectasis
+  - Cardiomegaly
+  - Consolidation
+  - Edema
+  - Effusion
+  - Emphysema
+  - Fibrosis
+  - Hernia
+  - Infiltration
+  - Mass
+  - Nodule
+  - Pleural_Thickening
+  - Pneumonia
+  - Pneumothorax
+
+optimization:
+  epochs: 20
+  lr: 0.0001
+  encoder_lr_scale: 0.1
+  weight_decay: 0.05
+  warmup: 3
+  final_lr: 1.0e-07
+  start_lr: 1.0e-06

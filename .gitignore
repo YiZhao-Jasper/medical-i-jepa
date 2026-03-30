@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# PyTorch checkpoints (too large for Git, use Git LFS or external hosting)
+*.pth.tar
+*.pth
+*.pt
+
+# Logs (large training logs)
+logs/pretrain_vitl14/jepa_r0.csv
+logs/pretrain_vitl14/train.log
+logs/pretrain_vitl14/gpu_monitor.log
+logs/pretrain_vitl14/.fail_count
+logs/run_all_lp.log
+logs/run_all_lp_nohup.log
+logs/run_lp_ep25.log
+logs/finetune_nohup.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.env/

@@ -1,0 +1,31 @@
+data:
+  batch_size: 16
+  crop_size: 224
+  num_workers: 4
+  pin_mem: true
+  root_path: /root/autodl-tmp/data/nih-chest-xrays-data
+  dataset: montgomery_jsrt
+
+logging:
+  folder: /root/autodl-tmp/medical-ijepa/medical-ijepa/logs/segmentation/
+  write_tag: seg
+
+meta:
+  model_name: vit_large
+  patch_size: 14
+  pretrained_path: /root/autodl-tmp/medical-ijepa/medical-ijepa/logs/pretrain_vitl14/jepa-latest.pth.tar
+  freeze_encoder: true
+  use_bfloat16: true
+
+eval:
+  task: segmentation
+  num_classes: 1
+  decoder_channels: [256, 128, 64]
+
+optimization:
+  epochs: 100
+  lr: 0.001
+  weight_decay: 0.01
+  warmup: 5
+  final_lr: 1.0e-06
+  start_lr: 0.0001
